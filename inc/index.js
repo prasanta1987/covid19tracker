@@ -1,7 +1,3 @@
-// alert(day);
-
-
-
 const
     infected = document.querySelector('#inf'),
     active = document.querySelector('#active'),
@@ -10,8 +6,7 @@ const
     updated = document.querySelector('#updated')
 
 
-// const url = 'https://corona.lmao.ninja/all'
-const url = 'https://corona.lmao.ninja/countries/ind'
+const url = 'https://corona.lmao.ninja/all'
 
 const fetchData = () => {
 
@@ -25,9 +20,8 @@ const fetchData = () => {
 
 
 const renderDom = (data) => {
-    console.log(data)
-    let time = data.updated
-    let day = moment(time).fromNow()
+
+    let day = moment(data.updated).fromNow()
 
     updated.innerHTML = `Updated ${day}`
     infected.innerHTML = data.cases
