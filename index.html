@@ -4,15 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>COVID-19 Tracker</title>
     <link rel="stylesheet" href="/inc/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </head>
 
 <body>
     <div class="container">
-        <span class="heading">World Wide COVID-19 Live Status</span>
-        <span id="updated">Updated</span>
+        <span class="heading">COVID-19 Live Status for <b id="area"></b></span>
         <div class="cards">
             <div class="infected card">
                 <div class="content">
@@ -39,6 +38,7 @@
                 </div>
             </div>
         </div>
+        <span id="updated" class="heading"></span>
     </div>
     <script src="./inc/index.js"></script>
 </body>

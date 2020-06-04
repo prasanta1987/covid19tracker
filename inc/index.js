@@ -3,10 +3,12 @@ const
     active = document.querySelector('#active'),
     cured = document.querySelector('#cured'),
     death = document.querySelector('#death'),
-    updated = document.querySelector('#updated')
+    updated = document.querySelector('#updated'),
+    area = document.querySelector('#area')
 
 
-const url = 'https://corona.lmao.ninja/all'
+// const url = 'https://corona.lmao.ninja/all'
+const url = 'https://corona.lmao.ninja/v2/countries/ind'
 
 const fetchData = () => {
 
@@ -21,15 +23,24 @@ const fetchData = () => {
 
 const renderDom = (data) => {
 
+    console.log(data)
     let day = moment(data.updated).fromNow()
 
     updated.innerHTML = `Updated ${day}`
-    infected.innerHTML = data.cases
-    active.innerHTML = data.active
-    cured.innerHTML = data.recovered
-    death.innerHTML = data.deaths
+    infected.innerHTML = numberWithCommas(data.cases)
+    active.innerHTML = numberWithCommas(data.active)
+    cured.innerHTML = numberWithCommas(data.recovered)
+    death.innerHTML = numberWithCommas(data.deaths)
+    area.innerHTML = data.country
 
 }
+
+
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+}
+
 
 fetchData()
 setInterval(fetchData, 60000)
